@@ -5,6 +5,7 @@
   "license": "Unlicense",
   "main": "lib/index.js",
   "scripts": {
+    "prepare": "npm run build",
     "test": "mocha --require babel-core/register --recursive",
     "build": "babel src -d lib"
   },
