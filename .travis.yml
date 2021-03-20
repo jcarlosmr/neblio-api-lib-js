@@ -1,7 +1,17 @@
 language: node_js
+os: linux
 node_js:
-  - "0.12"
-  - "8"
-  - "10"
+  - "15"
+
 script:
-- echo "skipping tests"
+  - npm install
+  - npm run test
+
+before_deploy:
+  - npm run build
+
+deploy:
+  provider: npm
+  email: "$NPM_EMAIL"
+  api_key: "$NPM_TOKEN"
+  cleanup: true
